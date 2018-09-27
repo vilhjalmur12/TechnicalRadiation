@@ -20,7 +20,7 @@ namespace TechnicalRadiation.Service
                 new NewsItemDto {
                     Id = item.Id,
                     Title = item.Title,
-                    ImgSource = item.ImgSoruce,
+                    ImgSource = item.ImgSource,
                     ShortDescription = item.ShortDescription
                 }
             ).ToList();
@@ -35,7 +35,7 @@ namespace TechnicalRadiation.Service
                     {
                         Id = item.Id,
                         Title = item.Title,
-                        ImgSource = item.ImgSoruce,
+                        ImgSource = item.ImgSource,
                         ShortDescription = item.ShortDescription,
                         LongDescription = item.LongDescription,
                         PublishDate = item.PublishDate
@@ -58,7 +58,7 @@ namespace TechnicalRadiation.Service
                 new NewsItem {
                     Id = 1,
                     Title = "New item 1",
-                    ImgSoruce = "some new source 1",
+                    ImgSource = "some new source 1",
                     ShortDescription = "Short description 1",
                     LongDescription = "Long description 1",
                     PublishDate = System.DateTime.Parse("07/24/2018 10:00:17")
@@ -66,7 +66,7 @@ namespace TechnicalRadiation.Service
                 new NewsItem {
                     Id = 2,
                     Title = "New item 2",
-                    ImgSoruce = "some new source 2",
+                    ImgSource = "some new source 2",
                     ShortDescription = "Short description 2",
                     LongDescription = "Long description 2",
                     PublishDate = System.DateTime.Parse("07/24/2018 10:00:18")
