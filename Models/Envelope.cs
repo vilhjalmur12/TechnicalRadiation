@@ -16,5 +16,4 @@ namespace TechnicalRadiation.Models
         public int PageNumber { get; set; }
         public int MaxPages { get; set; }
     }
-    }
 }
