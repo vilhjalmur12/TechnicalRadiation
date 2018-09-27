@@ -3,30 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Service;
+using TechnicalRadiation.Models;
 
 namespace TechnicalRadiation.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/api")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        NewsItemService _newsItemService = new NewsItemServiceImpl();
+
         // GET api/values
-        [HttpGet("")]
-        public ActionResult<IEnumerable<string>> Get([FromQuery]int pageNumber = 1, [FromQuery]int pageSize = 25)
+        [HttpGet("/")]
+        public IActionResult Get([FromQuery]int pageNumber = 1, [FromQuery]int pageSize = 25)
         {
             
             // 1. sækja fullan lista í service -> repo
                 // muna að sækja bara NewsItemDto
-
-            // 2. sorta lista eftir dagsetningu
+            var listItems = _newsItemService.getLightweight()
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
 
             // 3. adda öllum referencum
+            foreach (NewsItemDto item in listItems) {
+                item.addReference("self", "new link");
+            }
 
             // 4. setja inn max blaðsíður út frá fyrsta lista
+            var maxPage = (int) Math.Ceiling(listItems.Count() / (decimal) pageSize);
 
-            // 5. returna envelope af 
-
-            return new string[] { "value1", "value2" };
+            // 5. returna envelope af NewsItemDto
+            return Ok(new Envelope<NewsItemDto>(listItems, pageSize, pageNumber, maxPage));
         }
 
         // GET api/values/5
