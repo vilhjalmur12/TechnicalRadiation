@@ -7,6 +7,8 @@ namespace TechnicalRadiation.Data
 {
     public static class DbContext
     {
+        public static List<NewsItem> NewsItems { get => _newsmodels; set => _newsmodels = value; }
+
         private static List<NewsItem> _newsmodels = new List<NewsItem>
         {
             new NewsItem
@@ -16,7 +18,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/1.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:00"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:00"),
             },
             new NewsItem
             {
@@ -25,7 +27,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/2.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:02"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:02"),
             },
             new NewsItem
             {
@@ -34,7 +36,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/3.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:03"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:03"),
             },
             new NewsItem
             {
@@ -43,7 +45,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/4.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:04"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:04"),
             },
             new NewsItem
             {
@@ -52,7 +54,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/5.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:05"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:05"),
             },
             new NewsItem
             {
@@ -61,7 +63,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/6.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:06"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:06"),
             },
             new NewsItem
             {
@@ -70,7 +72,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/7.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:07"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:07"),
             },
             new NewsItem
             {
@@ -79,7 +81,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/8.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:08"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:08"),
             },
             new NewsItem
             {
@@ -88,7 +90,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/9.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:09"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:09"),
             },
             new NewsItem
             {
@@ -97,7 +99,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/10.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:10"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:10"),
             },
             new NewsItem
             {
@@ -106,7 +108,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/11.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:11"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:11"),
             },
             new NewsItem
             {
@@ -115,7 +117,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/12.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:12"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:12"),
             },
             new NewsItem
             {
@@ -124,7 +126,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/13.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:13"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:13"),
             },
             new NewsItem
             {
@@ -133,7 +135,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/14.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:14"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:14"),
             },
             new NewsItem
             {
@@ -142,7 +144,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/15.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:15"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:15"),
             },
             new NewsItem
             {
@@ -151,7 +153,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/16.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:16"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:16"),
             },
             new NewsItem
             {
@@ -160,7 +162,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/17.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:17"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:17"),
             },
             new NewsItem
             {
@@ -169,7 +171,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/18.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:18"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:18"),
             },
             new NewsItem
             {
@@ -178,7 +180,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/19.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:19"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:19"),
             },
             new NewsItem
             {
@@ -187,7 +189,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/20.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:20"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:20"),
             },
             new NewsItem
             {
@@ -196,7 +198,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/21.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:21"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:21"),
             },
             new NewsItem
             {
@@ -205,7 +207,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/22.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:22"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:22"),
             },
             new NewsItem
             {
@@ -214,7 +216,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/23.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:23"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:23"),
             },
             new NewsItem
             {
@@ -223,7 +225,7 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/24.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:24"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:24"),
             },
             new NewsItem
             {
@@ -232,8 +234,17 @@ namespace TechnicalRadiation.Data
                 ImgSoruce = "https://example.com/news-item/25.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("24/07/2018 10:00:25"),
+                PublishDate = DateTime.Parse("07/24/2018 10:00:25"),
             },
+            new NewsItem
+            {
+                Id = 26,
+                Title = "Title of the news article 25",
+                ImgSoruce = "https://example.com/news-item/25.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("07/24/2018 10:00:26"),
+            }
         };
 
         private static List<Author> _authormodels = new  List<Author>

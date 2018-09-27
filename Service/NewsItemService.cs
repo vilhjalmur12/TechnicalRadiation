@@ -7,7 +7,7 @@ namespace TechnicalRadiation.Service
     public interface NewsItemService
     {
         List<NewsItemDto> getLightweight();
-        
+        NewsItemDetailDto getNewsItemById(int id);
          
     }
 }
