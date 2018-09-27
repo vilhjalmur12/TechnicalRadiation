@@ -15,7 +15,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 1,
                 Title = "Title of the news article 1",
-                ImgSoruce = "https://example.com/news-item/1.jpg",
+                ImgSource = "https://example.com/news-item/1.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:00"),
@@ -24,7 +24,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 2,
                 Title = "Title of the news article 2",
-                ImgSoruce = "https://example.com/news-item/2.jpg",
+                ImgSource = "https://example.com/news-item/2.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:02"),
@@ -33,7 +33,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 3,
                 Title = "Title of the news article 3",
-                ImgSoruce = "https://example.com/news-item/3.jpg",
+                ImgSource = "https://example.com/news-item/3.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:03"),
@@ -42,7 +42,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 4,
                 Title = "Title of the news article 4",
-                ImgSoruce = "https://example.com/news-item/4.jpg",
+                ImgSource = "https://example.com/news-item/4.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:04"),
@@ -51,7 +51,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 5,
                 Title = "Title of the news article 5",
-                ImgSoruce = "https://example.com/news-item/5.jpg",
+                ImgSource = "https://example.com/news-item/5.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:05"),
@@ -60,7 +60,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 6,
                 Title = "Title of the news article 6",
-                ImgSoruce = "https://example.com/news-item/6.jpg",
+                ImgSource = "https://example.com/news-item/6.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:06"),
@@ -69,7 +69,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 7,
                 Title = "Title of the news article 7",
-                ImgSoruce = "https://example.com/news-item/7.jpg",
+                ImgSource = "https://example.com/news-item/7.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:07"),
@@ -78,7 +78,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 8,
                 Title = "Title of the news article 8",
-                ImgSoruce = "https://example.com/news-item/8.jpg",
+                ImgSource = "https://example.com/news-item/8.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:08"),
@@ -87,7 +87,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 9,
                 Title = "Title of the news article 9",
-                ImgSoruce = "https://example.com/news-item/9.jpg",
+                ImgSource = "https://example.com/news-item/9.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:09"),
@@ -96,7 +96,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 10,
                 Title = "Title of the news article 10",
-                ImgSoruce = "https://example.com/news-item/10.jpg",
+                ImgSource = "https://example.com/news-item/10.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:10"),
@@ -105,7 +105,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 11,
                 Title = "Title of the news article 11",
-                ImgSoruce = "https://example.com/news-item/11.jpg",
+                ImgSource = "https://example.com/news-item/11.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:11"),
@@ -114,7 +114,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 12,
                 Title = "Title of the news article 12",
-                ImgSoruce = "https://example.com/news-item/12.jpg",
+                ImgSource = "https://example.com/news-item/12.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:12"),
@@ -123,7 +123,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 13,
                 Title = "Title of the news article 13",
-                ImgSoruce = "https://example.com/news-item/13.jpg",
+                ImgSource = "https://example.com/news-item/13.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:13"),
@@ -132,7 +132,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 14,
                 Title = "Title of the news article 14",
-                ImgSoruce = "https://example.com/news-item/14.jpg",
+                ImgSource = "https://example.com/news-item/14.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:14"),
@@ -141,7 +141,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 15,
                 Title = "Title of the news article 15",
-                ImgSoruce = "https://example.com/news-item/15.jpg",
+                ImgSource = "https://example.com/news-item/15.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:15"),
@@ -150,7 +150,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 16,
                 Title = "Title of the news article 16",
-                ImgSoruce = "https://example.com/news-item/16.jpg",
+                ImgSource = "https://example.com/news-item/16.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:16"),
@@ -159,7 +159,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 17,
                 Title = "Title of the news article 17",
-                ImgSoruce = "https://example.com/news-item/17.jpg",
+                ImgSource = "https://example.com/news-item/17.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:17"),
@@ -168,7 +168,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 18,
                 Title = "Title of the news article 18",
-                ImgSoruce = "https://example.com/news-item/18.jpg",
+                ImgSource = "https://example.com/news-item/18.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:18"),
@@ -177,7 +177,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 19,
                 Title = "Title of the news article 19",
-                ImgSoruce = "https://example.com/news-item/19.jpg",
+                ImgSource = "https://example.com/news-item/19.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:19"),
@@ -186,7 +186,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 20,
                 Title = "Title of the news article 20",
-                ImgSoruce = "https://example.com/news-item/20.jpg",
+                ImgSource = "https://example.com/news-item/20.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:20"),
@@ -195,7 +195,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 21,
                 Title = "Title of the news article 21",
-                ImgSoruce = "https://example.com/news-item/21.jpg",
+                ImgSource = "https://example.com/news-item/21.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:21"),
@@ -204,7 +204,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 22,
                 Title = "Title of the news article 22",
-                ImgSoruce = "https://example.com/news-item/22.jpg",
+                ImgSource = "https://example.com/news-item/22.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:22"),
@@ -213,7 +213,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 23,
                 Title = "Title of the news article 23",
-                ImgSoruce = "https://example.com/news-item/23.jpg",
+                ImgSource = "https://example.com/news-item/23.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:23"),
@@ -222,7 +222,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 24,
                 Title = "Title of the news article 24",
-                ImgSoruce = "https://example.com/news-item/24.jpg",
+                ImgSource = "https://example.com/news-item/24.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:24"),
@@ -231,7 +231,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 25,
                 Title = "Title of the news article 25",
-                ImgSoruce = "https://example.com/news-item/25.jpg",
+                ImgSource = "https://example.com/news-item/25.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:25"),
@@ -240,7 +240,7 @@ namespace TechnicalRadiation.Data
             {
                 Id = 26,
                 Title = "Title of the news article 25",
-                ImgSoruce = "https://example.com/news-item/25.jpg",
+                ImgSource = "https://example.com/news-item/25.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("07/24/2018 10:00:26"),
