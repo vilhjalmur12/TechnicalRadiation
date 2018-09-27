@@ -46,7 +46,10 @@ namespace TechnicalRadiation.Controllers
         {
             NewsItemDetailDto item = _newsItemService.getNewsItemById(id);
 
-            item.addReference("self", "tmp self");
+            // adding get single reference
+            item.addReference("self", new ExpandoObject().TryAdd("href", "api/" + item.Id));
+            item.addReference("edit", new ExpandoObject().TryAdd("href", "api/" + item.Id));
+            item.addReference("delete", new ExpandoObject().TryAdd("href", "api/" + item.Id));
 
             return Ok(item);
         }

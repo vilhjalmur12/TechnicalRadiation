@@ -24,7 +24,25 @@ namespace TechnicalRadiation.Repository.Implementations
         //Create
         //DeleteById
         //UpdateById
-        public List<NewsItem> Create
+        public bool createNews(NewsItemInputModel item) {
+            DbContext.NewsItems.Add(new NewsItem {
+                Id = DbContext.NewsItems.Last().Id + 1,
+                Title = item.Title,
+                ImgSource = item.ImgSource,
+                ShortDescription = item.ShortDescription,
+                LongDescription = item.LongDescription,
+                PublishDate = item.PublishDate
+            });
+
+            // TODO: finna leið til að keyra á true/false
+            return true;
+        }
+
+        public bool deleteNewsById(int id) {
+            return DbContext.NewsItems.Remove(DbContext.NewsItems.Where(c => c.Id == id).SingleOrDefault());
+        }
+
+        
 
     }
 }
