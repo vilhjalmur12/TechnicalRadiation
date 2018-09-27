@@ -21,9 +21,6 @@ namespace TechnicalRadiation.Repository.Implementations
             return DbContext.NewsItems.Where(c => c.Id == newsId).SingleOrDefault();
         }
 
-        //Create
-        //DeleteById
-        //UpdateById
         public bool createNews(NewsItemInputModel item) {
             DbContext.NewsItems.Add(new NewsItem {
                 Id = DbContext.NewsItems.Last().Id + 1,
@@ -42,7 +39,7 @@ namespace TechnicalRadiation.Repository.Implementations
             return DbContext.NewsItems.Remove(DbContext.NewsItems.Where(c => c.Id == id).SingleOrDefault());
         }
 
-        
+        //UpdateById
 
     }
 }
