@@ -11,9 +11,21 @@ namespace TechnicalRadiation.Controllers
     public class ValuesController : ControllerBase
     {
         // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        [HttpGet("")]
+        public ActionResult<IEnumerable<string>> Get([FromQuery]int pageNumber = 1, [FromQuery]int pageSize = 25)
         {
+            
+            // 1. sækja fullan lista í service -> repo
+                // muna að sækja bara NewsItemDto
+
+            // 2. sorta lista eftir dagsetningu
+
+            // 3. adda öllum referencum
+
+            // 4. setja inn max blaðsíður út frá fyrsta lista
+
+            // 5. returna envelope af 
+
             return new string[] { "value1", "value2" };
         }
 
