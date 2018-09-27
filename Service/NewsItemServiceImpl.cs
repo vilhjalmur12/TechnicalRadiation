@@ -1,6 +1,7 @@
 using TechnicalRadiation.Models;
 using System.Collections.Generic;
 using System.Linq;
+using TechnicalRadiation.Data;
 
 namespace TechnicalRadiation.Service
 {
@@ -15,7 +16,7 @@ namespace TechnicalRadiation.Service
 
         // getLightweight
         public List<NewsItemDto> getLightweight() {
-            return getTestItems().OrderBy(c => c.PublishDate).Select(item => 
+            return DbContext.NewsItems.OrderBy(c => c.PublishDate).Select(item => 
                 new NewsItemDto {
                     Id = item.Id,
                     Title = item.Title,
@@ -27,6 +28,22 @@ namespace TechnicalRadiation.Service
         
 
         // getDetails
+        public NewsItemDetailDto getNewsItemById(int id) {
+            foreach(NewsItem item in DbContext.NewsItems) {
+                if (item.Id == id) {
+                    return new NewsItemDetailDto 
+                    {
+                        Id = item.Id,
+                        Title = item.Title,
+                        ImgSource = item.ImgSoruce,
+                        ShortDescription = item.ShortDescription,
+                        LongDescription = item.LongDescription,
+                        PublishDate = item.PublishDate
+                    };
+                }
+            }
+            return null;
+        }
 
         // createNewsItem
 
@@ -44,7 +61,7 @@ namespace TechnicalRadiation.Service
                     ImgSoruce = "some new source 1",
                     ShortDescription = "Short description 1",
                     LongDescription = "Long description 1",
-                    PublishDate = new System.DateTime()
+                    PublishDate = System.DateTime.Parse("07/24/2018 10:00:17")
                 },
                 new NewsItem {
                     Id = 2,
@@ -52,7 +69,7 @@ namespace TechnicalRadiation.Service
                     ImgSoruce = "some new source 2",
                     ShortDescription = "Short description 2",
                     LongDescription = "Long description 2",
-                    PublishDate = new System.DateTime()
+                    PublishDate = System.DateTime.Parse("07/24/2018 10:00:18")
                 }
             };
         }

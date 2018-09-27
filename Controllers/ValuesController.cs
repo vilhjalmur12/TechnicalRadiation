@@ -8,20 +8,23 @@ using TechnicalRadiation.Models;
 
 namespace TechnicalRadiation.Controllers
 {
-    [Route("/api")]
-    [ApiController]
+    //[Route("/api")]
+    //[ApiController]
     public class ValuesController : ControllerBase
     {
+        /*
         NewsItemService _newsItemService = new NewsItemServiceImpl();
 
         // GET api/values
-        [HttpGet("/")]
-        public IActionResult Get([FromQuery]int pageNumber = 1, [FromQuery]int pageSize = 25)
+        [HttpGet("/api")]
+        public IActionResult getAllNewsItems([FromQuery]int pageNumber = 1, [FromQuery]int pageSize = 25)
         {
             
             // 1. sækja fullan lista í service -> repo
                 // muna að sækja bara NewsItemDto
-            var listItems = _newsItemService.getLightweight()
+            var fullListItems = _newsItemService.getLightweight();
+
+            var listItems = fullListItems
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
@@ -32,17 +35,23 @@ namespace TechnicalRadiation.Controllers
             }
 
             // 4. setja inn max blaðsíður út frá fyrsta lista
-            var maxPage = (int) Math.Ceiling(listItems.Count() / (decimal) pageSize);
+            var maxPage = (int) Math.Ceiling(fullListItems.Count() / (decimal) pageSize);
 
             // 5. returna envelope af NewsItemDto
             return Ok(new Envelope<NewsItemDto>(listItems, pageSize, pageNumber, maxPage));
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        
+
+        // GET api/5
+        [HttpGet("/api/{id}")]
+        public ActionResult<string> getNewsItemById(int id)
         {
-            return "value";
+            NewsItemDetailDto item = _newsItemService.getNewsItemById(id);
+
+
+            item.addReference("self", "tmp self");
+            return Ok(item);
         }
 
         // POST api/values
@@ -62,5 +71,6 @@ namespace TechnicalRadiation.Controllers
         public void Delete(int id)
         {
         }
+         */
     }
 }
