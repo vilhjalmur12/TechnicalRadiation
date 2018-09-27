@@ -99,6 +99,179 @@ namespace TechnicalRadiation.Data
                 LongDescription = "A long description",
                 PublishDate = DateTime.Parse("24/07/2018 10:00:10"),
             },
+            new NewsItem
+            {
+                Id = 11,
+                Title = "Title of the news article 11",
+                ImgSoruce = "https://example.com/news-item/11.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:11"),
+            },
+            new NewsItem
+            {
+                Id = 12,
+                Title = "Title of the news article 12",
+                ImgSoruce = "https://example.com/news-item/12.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:12"),
+            },
+            new NewsItem
+            {
+                Id = 13,
+                Title = "Title of the news article 13",
+                ImgSoruce = "https://example.com/news-item/13.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:13"),
+            },
+            new NewsItem
+            {
+                Id = 14,
+                Title = "Title of the news article 14",
+                ImgSoruce = "https://example.com/news-item/14.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:14"),
+            },
+            new NewsItem
+            {
+                Id = 15,
+                Title = "Title of the news article 15",
+                ImgSoruce = "https://example.com/news-item/15.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:15"),
+            },
+            new NewsItem
+            {
+                Id = 16,
+                Title = "Title of the news article 16",
+                ImgSoruce = "https://example.com/news-item/16.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:16"),
+            },
+            new NewsItem
+            {
+                Id = 17,
+                Title = "Title of the news article 17",
+                ImgSoruce = "https://example.com/news-item/17.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:17"),
+            },
+            new NewsItem
+            {
+                Id = 18,
+                Title = "Title of the news article 18",
+                ImgSoruce = "https://example.com/news-item/18.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:18"),
+            },
+            new NewsItem
+            {
+                Id = 19,
+                Title = "Title of the news article 19",
+                ImgSoruce = "https://example.com/news-item/19.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:19"),
+            },
+            new NewsItem
+            {
+                Id = 20,
+                Title = "Title of the news article 20",
+                ImgSoruce = "https://example.com/news-item/20.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:20"),
+            },
+            new NewsItem
+            {
+                Id = 21,
+                Title = "Title of the news article 21",
+                ImgSoruce = "https://example.com/news-item/21.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:21"),
+            },
+            new NewsItem
+            {
+                Id = 22,
+                Title = "Title of the news article 22",
+                ImgSoruce = "https://example.com/news-item/22.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:22"),
+            },
+            new NewsItem
+            {
+                Id = 23,
+                Title = "Title of the news article 23",
+                ImgSoruce = "https://example.com/news-item/23.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:23"),
+            },
+            new NewsItem
+            {
+                Id = 24,
+                Title = "Title of the news article 24",
+                ImgSoruce = "https://example.com/news-item/24.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:24"),
+            },
+            new NewsItem
+            {
+                Id = 25,
+                Title = "Title of the news article 25",
+                ImgSoruce = "https://example.com/news-item/25.jpg",
+                ShortDescription = "A short description",
+                LongDescription = "A long description",
+                PublishDate = DateTime.Parse("24/07/2018 10:00:25"),
+            },
+        };
+
+        private static List<Author> _authormodels = new  List<Author>
+        {
+            new Author
+            {
+                Id = 1,
+                Name = "John Doe",
+                ProfileImgSource = "https://example.com/authors/1.jpg",
+                Bio = "My name is John Doe and I love writing Books!",
+            },
+            new Author
+            {
+                Id = 2,
+                Name = "Jane Doe",
+                ProfileImgSource = "https://example.com/authors/2.jpg",
+                Bio = "My name is Jane Doe and I love writing Books!",
+            }
+        };
+
+        private static List<Category> _categorymodels = new List<Category>
+        {
+            new Category
+            {
+                Id = 1,
+                Name = "Gadgets",
+                Slug = "gadgets",
+                ParentCategoryId = 0,
+
+            },
+            new Category
+            {
+                Id = 2,
+                Name = "Politics",
+                Slug = "politics",
+                ParentCategoryId = 0,
+
+            }
         };
     }
 }
