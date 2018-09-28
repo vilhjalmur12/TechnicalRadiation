@@ -26,7 +26,6 @@ namespace TechnicalRadiation.Service.Implementations
                 }
             ).ToList();
         }
-        
 
         // getDetails
         public NewsItemDetailDto getNewsItemById(int id) {

@@ -8,6 +8,5 @@ namespace TechnicalRadiation.Service.Interfaces
     {
         List<NewsItemDto> getLightweight();
         NewsItemDetailDto getNewsItemById(int id);
-         
     }
 }

@@ -14,7 +14,8 @@ namespace TechnicalRadiation.Controllers
     public class AuthorController : ControllerBase
     {
         IAuthorService _authorService = new AuthorService();
-        
+        IRelationService _relationService = new RelationService();
+        NewsItemService _newsService = new NewsItemServiceImpl();
 
         // GET api/authors
         [HttpGet("/api/authors")]
@@ -61,19 +62,24 @@ namespace TechnicalRadiation.Controllers
         [HttpGet("/api/authors/{authorId}/newsItems")]
         public ActionResult<string> getAuthorNews(int authorId)
         {
-            AuthorDto author = _authorService.getAuthorById(authorId);
+            // Find authors news
+            List<NewsItemDetailDto> newsList = _relationService.getRelationsByAuthorId(authorId)
+                .Select( item => _newsService.getNewsItemById(item.newsId)).ToList();
+
 
             // adding get single reference
             //category.addReference("self", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
             //category.addReference("edit", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
             //category.addReference("delete", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
-            author.addReference("self", "new link");
-            author.addReference("edit", "new link");
-            author.addReference("delete", "new link");
-            author.addReference("newsItems", "should be object of news");
-            author.addReference("newsItemsDetailed", "should be object list of detailed news");
-
-            return Ok(author);
+            foreach(NewsItemDetailDto item in newsList) {
+                item.addReference("self", "new link");
+                item.addReference("edit", "new link");
+                item.addReference("delete", "new link");
+                item.addReference("authors", "should be object LIST of authors");
+                item.addReference("categories", "should be object LIST of categories");
+            }
+            
+            return Ok(newsList);
         }
     }
 }
