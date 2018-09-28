@@ -7,6 +7,6 @@ namespace TechnicalRadiation.Service.Interfaces
     public interface IAuthorService
     {
          List<AuthorDto> getAllAuthors();
-         AuthorDto getAuthorById(int id);
+         AuthorDetailDto getAuthorById(int id);
     }
 }

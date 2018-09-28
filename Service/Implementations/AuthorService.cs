@@ -16,8 +16,14 @@ namespace TechnicalRadiation.Service.Implementations
             }).ToList();
         }
 
-        public AuthorDto getAuthorById(int id) {
-            return getAllAuthors().Where( a => a.Id == id).SingleOrDefault();
+        public AuthorDetailDto getAuthorById(int id) {
+            Author tmp = getAuthors().Where(a => a.Id == id).SingleOrDefault();
+            return new AuthorDetailDto {
+                Id = tmp.Id,
+                Name = tmp.Name,
+                ProfileImgSource = tmp.ProfileImgSource,
+                Bio = tmp.Bio
+            };
         }
 
 

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Service.Interfaces;
 using TechnicalRadiation.Service.Implementations;
 using TechnicalRadiation.Models.DTO;
+using TechnicalRadiation.Models.Entities;
+using Newtonsoft.Json.Linq;
 
 using Newtonsoft.Json;
 using System.Dynamic;
@@ -18,21 +20,21 @@ namespace TechnicalRadiation.Controllers
         IRelationService _relationService = new RelationService();
         NewsItemService _newsService = new NewsItemServiceImpl();
 
+
+
+
         // GET api/authors
         [HttpGet("/api/authors")]
-        public IActionResult getAllCategores()
+        public IActionResult getAllAuthors()
         {
+            List<AuthorDto> returnValue = new List<AuthorDto>();
             
             // 1. sækja fullan lista í service -> repo
             List<AuthorDto> authors = _authorService.getAllAuthors();
 
             // 3. adda öllum referencum 
             foreach (AuthorDto item in authors) {
-                item.addReference("self", "new link");
-                item.addReference("edit", "new link");
-                item.addReference("delete", "new link");
-                item.addReference("newsItems", "should be object of news");
-                item.addReference("newsItemsDetailed", "should be object list of detailed news");
+                returnValue.Add(referenceItem(item));
             }
             
             // 5. returna envelope af NewsItemDto
@@ -40,47 +42,134 @@ namespace TechnicalRadiation.Controllers
         }
 
 
+
         // GET api/authors/2
         [HttpGet("/api/authors/{authorId}")]
         public ActionResult<string> getNewsItemById(int authorId)
         {
-            AuthorDto author = _authorService.getAuthorById(authorId);
-
-            // adding get single reference
-            //category.addReference("self", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
-            //category.addReference("edit", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
-            //category.addReference("delete", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
-            author.addReference("self", "new link");
-            author.addReference("edit", "new link");
-            author.addReference("delete", "new link");
-            author.addReference("newsItems", "should be object of news");
-            author.addReference("newsItemsDetailed", "should be object list of detailed news");
-
-            return Ok(author);
+            AuthorDetailDto author = _authorService.getAuthorById(authorId);
+            return Ok(referenceItem(author));
         }
+
+
+
+
 
         // GET api/authors/2/newsItems
         [HttpGet("/api/authors/{authorId}/newsItems")]
         public ActionResult<string> getAuthorNews(int authorId)
         {
+            List<NewsItemDetailDto> returnValue = new List<NewsItemDetailDto>();
+
             // Find authors news
             List<NewsItemDetailDto> newsList = _relationService.getRelationsByAuthorId(authorId)
                 .Select( item => _newsService.getNewsItemById(item.newsId)).ToList();
 
-
-            // adding get single reference
-            //category.addReference("self", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
-            //category.addReference("edit", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
-            //category.addReference("delete", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
             foreach(NewsItemDetailDto item in newsList) {
-                item.addReference("self", "new link");
-                item.addReference("edit", "new link");
-                item.addReference("delete", "new link");
-                item.addReference("authors", "should be object LIST of authors");
-                item.addReference("categories", "should be object LIST of categories");
+                returnValue.Add(referenceItem(item));
             }
             
-            return Ok(newsList);
+            return Ok(returnValue);
+        }
+
+
+
+
+
+        private AuthorDto referenceItem(AuthorDto item) {
+            JObject tmpObj = new JObject();
+
+            // get all news items authors
+            List<NewsAuthorRelation> authourRelList = 
+                _relationService.getRelationsByAuthorId(item.Id);
+
+            tmpObj.TryAdd("href", "api/authors/" + item.Id);
+            item.addReference("self", tmpObj);
+            item.addReference("edit", tmpObj);
+            item.addReference("delete", tmpObj);
+            tmpObj.TryAdd("href", "api/authors/" + item.Id + "/newsItems");
+            item.addReference("newsItems", tmpObj);
+
+            List<JObject> objList = new List<JObject>();
+            foreach (NewsAuthorRelation relation in authourRelList) {
+                JObject relObj = new JObject();
+                relObj.TryAdd("href", "api/" + relation.newsId);
+                objList.Add(relObj);
+            }
+
+            item.addReference("newsItemsDetailed", objList);
+            
+            return item;
+        }
+
+
+
+
+        private AuthorDetailDto referenceItem(AuthorDetailDto item) {
+            JObject tmpObj = new JObject();
+
+            // get all news items authors
+            List<NewsAuthorRelation> authourRelList = 
+                _relationService.getRelationsByAuthorId(item.Id);
+
+            tmpObj.TryAdd("href", "api/authors/" + item.Id);
+            item.addReference("self", tmpObj);
+            item.addReference("edit", tmpObj);
+            item.addReference("delete", tmpObj);
+            tmpObj.TryAdd("href", "api/authors/" + item.Id + "/newsItems");
+            item.addReference("newsItems", tmpObj);
+
+            List<JObject> objList = new List<JObject>();
+            foreach (NewsAuthorRelation relation in authourRelList) {
+                JObject relObj = new JObject();
+                relObj.TryAdd("href", "api/" + relation.newsId);
+                objList.Add(relObj);
+            }
+
+            item.addReference("newsItemsDetailed", objList);
+            
+            return item;
+        }
+
+
+
+
+        private NewsItemDetailDto referenceItem(NewsItemDetailDto item) {
+            JObject tmpObj = new JObject();
+
+            // get all news items authors
+            List<NewsAuthorRelation> authourRelList = 
+                _relationService.getAutherNewsRelationByNewsId(item.Id);
+                
+            // get all news items categories
+            List<NewsCategoryRelation> categoryRelList =
+                _relationService.getNewsCateoryRelationByNewsId(item.Id);
+
+            tmpObj.TryAdd("href", "api/" + item.Id);
+            item.addReference("self", tmpObj);
+            item.addReference("edit", tmpObj);
+            item.addReference("delete", tmpObj);
+                
+            List<JObject> aObjList = new List<JObject>();
+                
+            foreach (NewsAuthorRelation aItem in authourRelList) {
+                JObject authorObject = new JObject();
+                authorObject.TryAdd("href", "api/authors/" + aItem.authorId);
+                aObjList.Add(authorObject);
+            }
+
+            item.addReference("authors", aObjList);
+
+            List<JObject> cObjList = new List<JObject>();
+            foreach (NewsCategoryRelation cItem in categoryRelList) {
+                JObject catObject = new JObject();
+                catObject.TryAdd("href", "api/categories/" + cItem.categoryId);
+                cObjList.Add(catObject);
+            }
+
+            item.addReference("categories", cObjList);
+
+            return item;
         }
     }
 }
