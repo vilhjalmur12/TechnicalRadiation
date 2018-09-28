@@ -9,7 +9,7 @@ namespace TechnicalRadiation.Repository.Interfaces
         List<Category> getAllCategories();
         Category getCategoryById(int categoryId);
         int createCategory(CategoryInputModel item);
-        bool deleteCategoryById(int categoryId);
+        void deleteCategoryById(int categoryId);
         void updateCategoryById(CategoryInputModel category, int categoryId);
     }
 }

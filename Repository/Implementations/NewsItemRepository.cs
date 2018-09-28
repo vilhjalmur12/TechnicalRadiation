@@ -2,7 +2,9 @@ using TechnicalRadiation.Repository.Interfaces;
 using TechnicalRadiation.Data;
 using TechnicalRadiation.Models.Entities;
 using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.Models.DTO;
 using System.Collections.Generic;
+using TechnicalRadiation.Models.Exceptions;
 using System.Linq;
 using System;
 
@@ -30,16 +32,18 @@ namespace TechnicalRadiation.Repository.Implementations
                 ImgSource = item.ImgSource,
                 ShortDescription = item.ShortDescription,
                 LongDescription = item.LongDescription,
-                PublishDate = item.PublishDate
+                PublishDate = DateTime.Parse(item.PublishDate) 
             });
 
             // TODO: finna leið til að keyra á true/false
             return newId;
         }
         //Delete news by id
-        public bool deleteNewsById(int id)
+        public void deleteNewsById(int id)
         {
-            return DbContext.NewsItems.Remove(DbContext.NewsItems.Where(c => c.Id == id).SingleOrDefault());
+            if (!DbContext.NewsItems.Remove(DbContext.NewsItems.Where(c => c.Id == id).SingleOrDefault())) {
+                throw new ResourceNotFoundException();
+            }
         }
         //Update news by id
         public void updateById(NewsItemInputModel news, int id)
@@ -47,8 +51,7 @@ namespace TechnicalRadiation.Repository.Implementations
             var updateNews = DbContext.NewsItems.FirstOrDefault(c => c.Id == id);
 
             if(updateNews == null ) {
-                return; 
-                //Throw some exception
+                throw new ResourceNotFoundException();
             }
             //Update properties
             updateNews.Title = news.Title;

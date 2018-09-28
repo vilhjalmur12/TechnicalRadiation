@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Data;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repository.Interfaces;
 
@@ -38,9 +39,13 @@ namespace TechnicalRadiation.Repository.Implementations
            return newId; 
         }
         //Delete category by Id
-        public bool deleteCategoryById(int categoryId)
+        public void deleteCategoryById(int categoryId)
         {
-            return DbContext.Categorys.Remove(DbContext.Categorys.Where(c => c.Id == categoryId).SingleOrDefault());
+            Category category = DbContext.Categorys.Where(c => c.Id == categoryId).SingleOrDefault();
+            if (category == null) {
+                throw new ResourceNotFoundException();
+            }
+            DbContext.Categorys.Remove(DbContext.Categorys.Where(c => c.Id == categoryId).SingleOrDefault());
         }
 
         //Update category by id

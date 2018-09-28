@@ -4,6 +4,7 @@ using TechnicalRadiation.Data;
 using TechnicalRadiation.Models.Entities;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repository.Interfaces;
+using TechnicalRadiation.Models.Exceptions;
 
 namespace TechnicalRadiation.Repository.Implementations
 {
@@ -14,11 +15,13 @@ namespace TechnicalRadiation.Repository.Implementations
         {
             return DbContext.Authors.ToList();
         }
+
         //Get authors by id
         public Author getAuthorById(int authorId)
         {
             return DbContext.Authors.Where(c => c.Id == authorId).SingleOrDefault();
         }
+
         //Create new author
         public int createAuthor(AuthorInputModel item)
         {
@@ -31,10 +34,15 @@ namespace TechnicalRadiation.Repository.Implementations
             });
            return newId; 
         }
+
         //Delete author by Id
         public bool deleteAuthorById(int authorId)
         {
-            return DbContext.Authors.Remove(DbContext.Authors.Where(c => c.Id == authorId).SingleOrDefault());
+            Author author = DbContext.Authors.Where(c => c.Id == authorId).SingleOrDefault();
+            if (author == null) {
+                throw new ResourceNotFoundException();
+            }
+            return DbContext.Authors.Remove(author);
         }
 
         //Update author by id
@@ -43,8 +51,7 @@ namespace TechnicalRadiation.Repository.Implementations
             var updateAuthor = DbContext.Authors.FirstOrDefault(c => c.Id == authorId);
 
             if(updateAuthor == null) {
-                return;
-                //throw some exception
+                throw new ResourceNotFoundException();
             }
             updateAuthor.Name = author.Name;
             updateAuthor.Bio =author.Bio;

@@ -8,6 +8,8 @@ using TechnicalRadiation.Service.Implementations;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Entities;
 using TechnicalRadiation.Models.Attributes;
+using TechnicalRadiation.Models.InputModels;
+
 using Newtonsoft.Json.Linq;
 using System.Dynamic;
 using TechnicalRadiation.Models.Exceptions;
@@ -62,23 +64,42 @@ namespace TechnicalRadiation.Controllers
             return Ok(referenceItem(item));
         }
 
+
+
         // POST api/
         [HttpPost("/api")]
-        public void Post([FromBody] string value)
+        public ActionResult<string> Post([FromBody] NewsItemInputModel inputModel)
         {
+            if (!ModelState.IsValid) {
+                throw new ModelFormatException();
+            }
+            int modelId = _newsItemService.createNewsItem(inputModel);             
+            return getNewsItemById(modelId);
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+
+
+        // PUT api/5
+        [HttpPut("/api/{newsItemId}")]
+        public void Put(int newsItemId, [FromBody] NewsItemInputModel inputModel)
         {
+            if(!ModelState.IsValid) { throw new ModelFormatException(); }
+            _newsItemService.updateNewsItemById(inputModel, newsItemId);
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("/api/{newsItemId}")]
+        public void Delete(int newsItemId)
         {
+            _newsItemService.deleteNewsById(newsItemId);
         }
+
+    
+        [HttpGet("/test")]
+        public IActionResult GetTest([FromHeader] string authorize) {
+            return Ok(authorize);
+        }
+
 
         private NewsItemDto referenceLightItem(NewsItemDto item) {
             JObject tmpObj = new JObject();

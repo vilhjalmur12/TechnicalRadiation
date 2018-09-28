@@ -1,15 +1,20 @@
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.InputModels;
 using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Service.Interfaces;
+using TechnicalRadiation.Repository.Interfaces;
+using TechnicalRadiation.Repository.Implementations;
 
 namespace TechnicalRadiation.Service.Implementations
 {
     public class AuthorService : IAuthorService
     {
+        IAuthorRepository _authorRepository = new AuthorRepository();
+
         public List<AuthorDto> getAllAuthors() {
-            return getAuthors().Select(item => new AuthorDto
+            return _authorRepository.getAllAuthors().Select(item => new AuthorDto
             {
                 Id = item.Id,
                 Name = item.Name
@@ -17,13 +22,25 @@ namespace TechnicalRadiation.Service.Implementations
         }
 
         public AuthorDetailDto getAuthorById(int id) {
-            Author tmp = getAuthors().Where(a => a.Id == id).SingleOrDefault();
+            Author tmp = _authorRepository.getAllAuthors().Where(a => a.Id == id).SingleOrDefault();
             return new AuthorDetailDto {
                 Id = tmp.Id,
                 Name = tmp.Name,
                 ProfileImgSource = tmp.ProfileImgSource,
                 Bio = tmp.Bio
             };
+        }
+
+        public int createAuthor(AuthorInputModel model) {
+            return _authorRepository.createAuthor(model);
+        }
+
+        public void updateAuthorById(AuthorInputModel inputModel,int id) {
+            _authorRepository.updateAuthorById(inputModel, id);
+        }
+
+        public void deleteAuthorById(int authorId) {
+            _authorRepository.deleteAuthorById(authorId);
         }
 
 
