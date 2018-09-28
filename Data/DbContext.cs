@@ -8,7 +8,7 @@ namespace TechnicalRadiation.Data
     public static class DbContext
     {
         public static List<NewsItem> NewsItems { get => _newsmodels; set => _newsmodels = value; }
-
+        public static List<Author> Authors { get => _authormodels; set => _authormodels = value; }
         private static List<NewsItem> _newsmodels = new List<NewsItem>
         {
             new NewsItem
