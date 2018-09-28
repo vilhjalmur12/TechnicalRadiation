@@ -39,6 +39,6 @@ namespace TechnicalRadiation.Service.Implementations
                     Slug = "category 2"
                 }
             };
-        }
+            }
     }
 }

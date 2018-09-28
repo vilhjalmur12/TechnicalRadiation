@@ -9,6 +9,4 @@ namespace TechnicalRadiation.Service.Interfaces
         CategoryDto GetCategoryById(int id);
     }
 
-
-
 }
