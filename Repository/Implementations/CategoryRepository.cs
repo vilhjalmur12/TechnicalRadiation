@@ -18,10 +18,11 @@ namespace TechnicalRadiation.Repository.Implementations
             return DbContext.Categorys.Where(c => c.Id == categoryId).SingleOrDefault();
         }
         //Create new category
-        public bool createCategory(CategoryInputModel item)
+        public int createCategory(CategoryInputModel item)
         {
+            int newId = DbContext.Categorys.Last().Id + 1;
             DbContext.Categorys.Add(new Category {
-                Id = DbContext.Categorys.Last().Id + 1,
+                Id = newId,
                 Name = item.Name,
                 ParentCategoryId = item.ParentCategoryId, // defaults to 0
                 /*
@@ -32,7 +33,7 @@ namespace TechnicalRadiation.Repository.Implementations
                 */
                 Slug = item.Slug
             });
-           return true; 
+           return newId; 
         }
         //Delete category by Id
         public bool deleteCategoryById(int categoryId)

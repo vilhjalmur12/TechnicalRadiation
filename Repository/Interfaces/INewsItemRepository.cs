@@ -8,7 +8,7 @@ namespace TechnicalRadiation.Repository.Interfaces
     {
         List<NewsItem> GetAllNews();
         NewsItem GetNewsById(int newsId);
-        bool createNews(NewsItemInputModel item);
+        int createNews(NewsItemInputModel item);
         bool deleteNewsById(int id);
         void updateById(NewsItemInputModel news, int id);
     }

@@ -7,7 +7,7 @@ namespace TechnicalRadiation.Repository.Interfaces
     {
         List<Author> getAllAuthors();
         Author getAuthorById(int authorId);
-        bool createAuthor(AuthorInputModel item);
+        int createAuthor(AuthorInputModel item);
         bool deleteAuthorById(int authorId);
         void updateAuthorById(AuthorInputModel author, int authorId);
         
