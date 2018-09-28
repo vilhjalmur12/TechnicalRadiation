@@ -16,9 +16,7 @@ namespace TechnicalRadiation.Service.Implementations
         private INewsItemRepository _newsRepository = new NewsItemRepository();
 
         // initializer public NewsItemServiceImpl
-        public NewsItemServiceImpl() {
-
-        }
+        
 
         // getLightweight
         public List<NewsItemDto> getLightweight() {
@@ -50,8 +48,7 @@ namespace TechnicalRadiation.Service.Implementations
             return null;
         }
 
-        
-
+    
         // createNewsItem
         public int createNewsItem(NewsItemInputModel inputModel) {
             return _newsRepository.createNews(inputModel);
@@ -59,7 +56,14 @@ namespace TechnicalRadiation.Service.Implementations
 
         // updateNewsItem
 
+        public void updateNewsItemById(NewsItemInputModel model, int id) {
+            _newsRepository.updateById(model, id);
+        }
+
         // deleteNewsItem
+        public void deleteNewsById(int id) {
+            _newsRepository.deleteNewsById(id);
+        }
 
 
         // TEST function

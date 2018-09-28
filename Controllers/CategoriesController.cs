@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Service.Interfaces;
 using TechnicalRadiation.Service.Implementations;
 using TechnicalRadiation.Models.DTO;
+using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.Models.Exceptions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Dynamic;
@@ -29,47 +31,47 @@ namespace TechnicalRadiation.Controllers
                 returnList.Add(referenceItem(item));
             }
             
-            // 5. returna envelope af NewsItemDto
+            // 5. returna envelope 
             return Ok(returnList);
         }
 
 
         // GET api/2
         [HttpGet("/api/categories/{categoryId}")]
-        public ActionResult<string> getNewsItemById(int categoryId)
+        public ActionResult<string> getCategoryById(int categoryId)
         {
             CategoryDto category = _categoryService.GetCategoryById(categoryId);
-
-            // adding get single reference
-            //category.addReference("self", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
-            //category.addReference("edit", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
-            //category.addReference("delete", new ExpandoObject().TryAdd("href", "api/categories/" + category.Id));
-            category.addReference("self", "api/categories/" + category.Id);
-
-            return Ok(category);
+            return Ok(referenceItem(category));
         }
 
 
-        /* 
-
         // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("/api/categories")]
+        public ActionResult<string> createCategory([FromBody] CategoryInputModel inputModel)
         {
+            if (!ModelState.IsValid) {
+                throw new ModelFormatException();
+            }
+            return getCategoryById(_categoryService.createCategory(inputModel));
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("/api/categories/{categoryId}")]
+        public void updateCategoryById(int categoryId, [FromBody] CategoryInputModel inputModel)
         {
+            if (!ModelState.IsValid) {
+                throw new ModelFormatException();
+            }
+            _categoryService.updateCategoryById(categoryId, inputModel);
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("/api/categories/{categoryId}")]
+        public void deleteCategoryById(int categoryId)
         {
+            _categoryService.deleteCategoryById(categoryId);
         }
-        */
+
 
 
 

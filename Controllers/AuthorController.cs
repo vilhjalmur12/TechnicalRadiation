@@ -7,6 +7,8 @@ using TechnicalRadiation.Service.Interfaces;
 using TechnicalRadiation.Service.Implementations;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.Models.Exceptions;
 using Newtonsoft.Json.Linq;
 
 using Newtonsoft.Json;
@@ -45,13 +47,37 @@ namespace TechnicalRadiation.Controllers
 
         // GET api/authors/2
         [HttpGet("/api/authors/{authorId}")]
-        public ActionResult<string> getNewsItemById(int authorId)
+        public ActionResult<string> getAuthorById(int authorId)
         {
             AuthorDetailDto author = _authorService.getAuthorById(authorId);
             return Ok(referenceItem(author));
         }
 
+        // POST api/author
+        [HttpPost("/api/authors")]
+        public ActionResult<string> createAuthor([FromBody] AuthorInputModel inputModel)
+        {
+            if (!ModelState.IsValid) {
+                throw new ModelFormatException();
+            }
+            int modelId = _authorService.createAuthor(inputModel);             
+            return getAuthorById(modelId);
+        }
 
+        // PUT api/5
+        [HttpPut("/api/authors/{authorId}")]
+        public void updateAuthor(int authorId, [FromBody] AuthorInputModel inputModel)
+        {
+            if(!ModelState.IsValid) { throw new ModelFormatException(); }
+            _authorService.updateAuthorById(inputModel, authorId);
+        }
+
+        // DELETE api/values/5
+        [HttpDelete("/api/authors/{authorId}")]
+        public void Delete(int authorId)
+        {
+            _authorService.deleteAuthorById(authorId);
+        }
 
 
 
