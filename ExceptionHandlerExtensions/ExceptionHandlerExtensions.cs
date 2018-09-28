@@ -21,7 +21,6 @@ namespace TechnicalRadiation.ExceptionHandlerExtensions
                         var exception = exceptionHandlerFeature.Error;
                         //default statuscode
                         var statusCode = (int) HttpStatusCode.InternalServerError;
-                        context.Response.ContentType = "application/json";
 
                         //Log the error in a database ????
 
@@ -42,12 +41,14 @@ namespace TechnicalRadiation.ExceptionHandlerExtensions
                             statusCode = (int) HttpStatusCode.Unauthorized;
                         }
 
-                        ExceptionModel exceptionModel = new ExceptionModel{
+                        /*ExceptionModel exceptionModel = new ExceptionModel{
                             StatusCode = statusCode,
                             Message = exception.Message,
                         };
-
+                        */
                         //log ???
+                        context.Response.ContentType = "application/json";
+                        context.Response.StatusCode = statusCode;
 
                         await context.Response.WriteAsync(new ExceptionModel{
                             StatusCode = statusCode,
