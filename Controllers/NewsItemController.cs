@@ -8,6 +8,8 @@ using TechnicalRadiation.Service.Implementations;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.Entities;
 using TechnicalRadiation.Models.Attributes;
+using TechnicalRadiation.Models.InputModels;
+
 using Newtonsoft.Json.Linq;
 using System.Dynamic;
 
@@ -58,11 +60,21 @@ namespace TechnicalRadiation.Controllers
             return Ok(referenceItem(item));
         }
 
+
+
         // POST api/
         [HttpPost("/api")]
-        public void Post([FromBody] string value)
+        public ActionResult Post([FromBody] NewsItemInputModel inputModel)
         {
+            if (!ModelState.IsValid) {
+                
+            }
+            int modelId = _newsItemService.createNewsItem(inputModel);
+
+            return CreatedAtRoute("getNewsItemById", new { id = modelId }, null);
         }
+
+
 
         // PUT api/values/5
         [HttpPut("{id}")]

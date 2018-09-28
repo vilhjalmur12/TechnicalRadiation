@@ -1,6 +1,7 @@
 using TechnicalRadiation.Models.DTO;
 using System.Collections.Generic;
 using System.Linq;
+using TechnicalRadiation.Models.InputModels;
 
 namespace TechnicalRadiation.Service.Interfaces
 {
@@ -8,5 +9,6 @@ namespace TechnicalRadiation.Service.Interfaces
     {
         List<NewsItemDto> getLightweight();
         NewsItemDetailDto getNewsItemById(int id);
+        int createNewsItem(NewsItemInputModel inputModel);
     }
 }

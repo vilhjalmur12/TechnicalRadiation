@@ -3,13 +3,17 @@ using TechnicalRadiation.Models.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Data;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Service.Interfaces;
+using TechnicalRadiation.Repository.Interfaces;
+using TechnicalRadiation.Repository.Implementations;
 
 namespace TechnicalRadiation.Service.Implementations
 {
     public class NewsItemServiceImpl : NewsItemService
     {
         // initialize the repository
+        private INewsItemRepository _newsRepository = new NewsItemRepository();
 
         // initializer public NewsItemServiceImpl
         public NewsItemServiceImpl() {
@@ -18,7 +22,7 @@ namespace TechnicalRadiation.Service.Implementations
 
         // getLightweight
         public List<NewsItemDto> getLightweight() {
-            return DbContext.NewsItems.OrderBy(c => c.PublishDate).Select(item => 
+            return _newsRepository.GetAllNews().OrderBy(c => c.PublishDate).Select(item => 
                 new NewsItemDto {
                     Id = item.Id,
                     Title = item.Title,
@@ -30,7 +34,7 @@ namespace TechnicalRadiation.Service.Implementations
 
         // getDetails
         public NewsItemDetailDto getNewsItemById(int id) {
-            foreach(NewsItem item in DbContext.NewsItems) {
+            foreach(NewsItem item in _newsRepository.GetAllNews()) {
                 if (item.Id == id) {
                     return new NewsItemDetailDto 
                     {
@@ -49,6 +53,9 @@ namespace TechnicalRadiation.Service.Implementations
         
 
         // createNewsItem
+        public int createNewsItem(NewsItemInputModel inputModel) {
+            return _newsRepository.createNews(inputModel);
+        }
 
         // updateNewsItem
 
