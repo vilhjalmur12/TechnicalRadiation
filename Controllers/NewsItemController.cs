@@ -12,6 +12,7 @@ using TechnicalRadiation.Models.InputModels;
 
 using Newtonsoft.Json.Linq;
 using System.Dynamic;
+using TechnicalRadiation.Models.Exceptions;
 
 namespace TechnicalRadiation.Controllers
 {
@@ -56,6 +57,9 @@ namespace TechnicalRadiation.Controllers
         public ActionResult<string> getNewsItemById(int id)
         {
             NewsItemDetailDto item = _newsItemService.getNewsItemById(id);
+            if(item == null) {
+                throw new ResourceNotFoundException();
+            }
 
             return Ok(referenceItem(item));
         }
