@@ -1,6 +1,8 @@
+using TechnicalRadiation.Models.Attributes;
+
 namespace TechnicalRadiation.Models.DTO
 {
-    public class AuthorDetailDto
+    public class AuthorDetailDto : HyperMediaModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
