@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using TechnicalRadiation.Models;
+using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.InputModels;
 
 namespace TechnicalRadiation.Repository.Interfaces
 {

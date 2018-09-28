@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace TechnicalRadiation.Models
+namespace TechnicalRadiation.Models.Attributes
 {
     public class Envelope<T> where T : class
     {

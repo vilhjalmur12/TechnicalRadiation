@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Service.Interfaces;
 using TechnicalRadiation.Service.Implementations;
-using TechnicalRadiation.Models;
+using TechnicalRadiation.Models.DTO;
+using TechnicalRadiation.Models.Attributes;
 using Newtonsoft.Json;
 using System.Dynamic;
 

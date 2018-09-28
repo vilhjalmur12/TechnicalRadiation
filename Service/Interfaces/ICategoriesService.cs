@@ -1,4 +1,4 @@
-using TechnicalRadiation.Models;
+using TechnicalRadiation.Models.DTO;
 using System.Collections.Generic;
 
 namespace TechnicalRadiation.Service.Interfaces

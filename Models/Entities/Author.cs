@@ -1,11 +1,11 @@
-namespace TechnicalRadiation.Models
+namespace TechnicalRadiation.Models.Entities
 {
-    public class Category
+    public class Author
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Slug { get; set; }
-        public int ParentCategoryId { get; set; }
+        public string ProfileImgSource { get; set; }
+        public string Bio { get; set; }
         /* 
         These should be code generated commented out for now
         public string ModifiedBy { get; set; }

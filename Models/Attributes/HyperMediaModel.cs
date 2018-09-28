@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using Newtonsoft.Json;
 
-namespace TechnicalRadiation.Models
+namespace TechnicalRadiation.Models.Attributes
 {
     public class HyperMediaModel
     {
