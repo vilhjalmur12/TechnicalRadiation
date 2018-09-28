@@ -1,6 +1,7 @@
 using TechnicalRadiation.Repository.Interfaces;
 using TechnicalRadiation.Data;
-using TechnicalRadiation.Models;
+using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.InputModels;
 using System.Collections.Generic;
 using System.Linq;
 using System;

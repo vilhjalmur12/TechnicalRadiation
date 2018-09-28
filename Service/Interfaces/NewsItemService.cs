@@ -1,4 +1,4 @@
-using TechnicalRadiation.Models;
+using TechnicalRadiation.Models.DTO;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,6 +8,5 @@ namespace TechnicalRadiation.Service.Interfaces
     {
         List<NewsItemDto> getLightweight();
         NewsItemDetailDto getNewsItemById(int id);
-         
     }
 }

@@ -1,6 +1,7 @@
 using System;
+using TechnicalRadiation.Models.Attributes;
 
-namespace TechnicalRadiation.Models
+namespace TechnicalRadiation.Models.DTO
 {
     public class NewsItemDetailDto : HyperMediaModel
     {

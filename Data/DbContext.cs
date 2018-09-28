@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using TechnicalRadiation.Models;
+using TechnicalRadiation.Models.Entities;
 using System.Linq;
 using System;
 

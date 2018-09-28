@@ -1,4 +1,6 @@
-namespace TechnicalRadiation.Models
+using TechnicalRadiation.Models.Attributes;
+
+namespace TechnicalRadiation.Models.DTO
 {
     public class AuthorDto : HyperMediaModel
     {

@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TechnicalRadiation.Models
+namespace TechnicalRadiation.Models.InputModels
 {
     public class NewsItemInputModel
     {

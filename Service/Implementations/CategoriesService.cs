@@ -1,4 +1,5 @@
-using TechnicalRadiation.Models;
+using TechnicalRadiation.Models.DTO;
+using TechnicalRadiation.Models.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Service.Interfaces;
@@ -39,6 +40,6 @@ namespace TechnicalRadiation.Service.Implementations
                     Slug = "category 2"
                 }
             };
-        }
+            }
     }
 }

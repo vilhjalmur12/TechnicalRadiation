@@ -1,4 +1,4 @@
-using TechnicalRadiation.Models;
+using TechnicalRadiation.Models.DTO;
 using System.Collections.Generic;
 
 namespace TechnicalRadiation.Service.Interfaces
@@ -8,7 +8,5 @@ namespace TechnicalRadiation.Service.Interfaces
          List<CategoryDto> getAllCategories();
         CategoryDto GetCategoryById(int id);
     }
-
-
 
 }
