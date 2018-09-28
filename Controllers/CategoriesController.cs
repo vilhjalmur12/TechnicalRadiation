@@ -7,6 +7,7 @@ using TechnicalRadiation.Service.Interfaces;
 using TechnicalRadiation.Service.Implementations;
 using TechnicalRadiation.Models.DTO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Dynamic;
 
 namespace TechnicalRadiation.Controllers
@@ -19,17 +20,17 @@ namespace TechnicalRadiation.Controllers
         [HttpGet("/api/categories")]
         public IActionResult getAllCategores()
         {
-            
+            List<CategoryDto> returnList = new List<CategoryDto>();
             // 1. sækja fullan lista í service -> repo
             List<CategoryDto> categories = _categoryService.getAllCategories();
 
             // 3. adda öllum referencum 
             foreach (CategoryDto item in categories) {
-                item.addReference("self", "new link");
+                returnList.Add(referenceItem(item));
             }
             
             // 5. returna envelope af NewsItemDto
-            return Ok(categories);
+            return Ok(returnList);
         }
 
 
@@ -68,11 +69,28 @@ namespace TechnicalRadiation.Controllers
         public void Delete(int id)
         {
         }
+        */
 
-        private void referenceNewsItem(ref NewsItemDto value) {
-            value.addReference("self", new ExpandoObject().TryAdd("href", "api/" + value.Id));
+
+
+        private CategoryDto referenceItem(CategoryDto value) {
+            JObject tmpObj = new JObject();
+            tmpObj.TryAdd("href", "api/" + value.Id);
+            value.addReference("self", tmpObj);
+            value.addReference("edit", tmpObj);
+            value.addReference("delete", tmpObj);
+            return value;
         }
 
-         */
+        private CategoryDetailDto referenceItem(CategoryDetailDto value) {
+            JObject tmpObj = new JObject();
+            tmpObj.TryAdd("href", "api/categories/" + value.Id);
+            value.addReference("self", tmpObj);
+            value.addReference("edit", tmpObj);
+            value.addReference("delete", tmpObj);
+            return value;
+        }
+
+         
     }
 }
