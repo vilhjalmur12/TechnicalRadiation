@@ -20,10 +20,11 @@ namespace TechnicalRadiation.Repository.Implementations
             return DbContext.NewsItems.Where(c => c.Id == newsId).SingleOrDefault();
         }
         //Create news
-        public bool createNews(NewsItemInputModel item)
+        public int createNews(NewsItemInputModel item)
         {
+            int newId = DbContext.NewsItems.Last().Id + 1;
             DbContext.NewsItems.Add(new NewsItem {
-                Id = DbContext.NewsItems.Last().Id + 1,
+                Id = newId,
                 Title = item.Title,
                 ImgSource = item.ImgSource,
                 ShortDescription = item.ShortDescription,
@@ -32,7 +33,7 @@ namespace TechnicalRadiation.Repository.Implementations
             });
 
             // TODO: finna leið til að keyra á true/false
-            return true;
+            return newId;
         }
         //Delete news by id
         public bool deleteNewsById(int id)

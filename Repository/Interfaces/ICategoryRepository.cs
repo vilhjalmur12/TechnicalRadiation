@@ -7,7 +7,7 @@ namespace TechnicalRadiation.Repository.Interfaces
     {
         List<Category> getAllCategories();
         Category getCategoryById(int categoryId);
-        bool createCategory(CategoryInputModel item);
+        int createCategory(CategoryInputModel item);
         bool deleteCategoryById(int categoryId);
         void updateCategoryById(CategoryInputModel category, int categoryId);
     }

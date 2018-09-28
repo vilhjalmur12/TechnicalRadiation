@@ -19,15 +19,16 @@ namespace TechnicalRadiation.Repository.Implementations
             return DbContext.Authors.Where(c => c.Id == authorId).SingleOrDefault();
         }
         //Create new author
-        public bool createAuthor(AuthorInputModel item)
+        public int createAuthor(AuthorInputModel item)
         {
+            int newId = DbContext.Authors.Last().Id + 1;
             DbContext.Authors.Add(new Author {
-                Id = DbContext.Authors.Last().Id + 1,
+                Id = newId,
                 Name = item.Name,
                 ProfileImgSource = item.ProfileImgSource,
                 Bio = item.Bio
             });
-           return true; 
+           return newId; 
         }
         //Delete author by Id
         public bool deleteAuthorById(int authorId)
