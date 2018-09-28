@@ -2,8 +2,9 @@ using TechnicalRadiation.Models;
 using System.Collections.Generic;
 using System.Linq;
 using TechnicalRadiation.Data;
+using TechnicalRadiation.Service.Interfaces;
 
-namespace TechnicalRadiation.Service
+namespace TechnicalRadiation.Service.Implementations
 {
     public class NewsItemServiceImpl : NewsItemService
     {
@@ -44,6 +45,8 @@ namespace TechnicalRadiation.Service
             }
             return null;
         }
+
+        
 
         // createNewsItem
 
