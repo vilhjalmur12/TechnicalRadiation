@@ -37,7 +37,10 @@ namespace TechnicalRadiation.ExceptionHandlerExtensions
                         {
                             statusCode = (int) HttpStatusCode.PreconditionFailed;
                         }
-                        // UnAutho TODO
+                        else if(exception is UnauthorizedException)
+                        {
+                            statusCode = (int) HttpStatusCode.Unauthorized;
+                        }
 
                         ExceptionModel exceptionModel = new ExceptionModel{
                             StatusCode = statusCode,
