@@ -58,8 +58,8 @@ namespace TechnicalRadiation.Controllers
             return Ok(referenceItem(item));
         }
 
-        // POST api/values
-        [HttpPost]
+        // POST api/
+        [HttpPost("/api")]
         public void Post([FromBody] string value)
         {
         }
