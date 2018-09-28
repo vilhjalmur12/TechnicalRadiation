@@ -65,7 +65,7 @@ namespace TechnicalRadiation.Controllers
         }
 
 
-
+        
         // POST api/
         [HttpPost("/api")]
         public ActionResult<string> Post([FromBody] NewsItemInputModel inputModel)

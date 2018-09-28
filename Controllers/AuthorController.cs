@@ -13,6 +13,7 @@ using Newtonsoft.Json.Linq;
 
 using Newtonsoft.Json;
 using System.Dynamic;
+using TechnicalRadiation.Models.Attributes;
 
 namespace TechnicalRadiation.Controllers
 {
@@ -54,6 +55,7 @@ namespace TechnicalRadiation.Controllers
         }
 
         // POST api/author
+        [BasicAuthenticationAtrribute]
         [HttpPost("/api/authors")]
         public ActionResult<string> createAuthor([FromBody] AuthorInputModel inputModel)
         {
