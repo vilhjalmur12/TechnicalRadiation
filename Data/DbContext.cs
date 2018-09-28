@@ -9,6 +9,7 @@ namespace TechnicalRadiation.Data
     {
         public static List<NewsItem> NewsItems { get => _newsmodels; set => _newsmodels = value; }
         public static List<Author> Authors { get => _authormodels; set => _authormodels = value; }
+        public static List<Category> Categorys { get => _categorymodels; set => _categorymodels = value; }
         private static List<NewsItem> _newsmodels = new List<NewsItem>
         {
             new NewsItem
