@@ -24,11 +24,8 @@ namespace TechnicalRadiation.Controllers
         // GET api/values
         [HttpGet("/api")]
         public IActionResult getAllNewsItems([FromQuery]int pageNumber = 1, [FromQuery]int pageSize = 25)
-        {
-
-            
+        {            
             // 1. sækja fullan lista í service -> repo
-                // muna að sækja bara NewsItemDto
             var fullListItems = _newsItemService.getLightweight();
             List<NewsItemDto> returnList = new List<NewsItemDto>();
 
@@ -39,7 +36,6 @@ namespace TechnicalRadiation.Controllers
 
             JObject tmpObj = new JObject();
             
-
             // 3. adda öllum referencum
             foreach (NewsItemDto item in listItems) {
                 returnList.Add(referenceLightItem(item));
@@ -67,6 +63,7 @@ namespace TechnicalRadiation.Controllers
 
         
         // POST api/
+        [BasicAuthenticationAtrribute]
         [HttpPost("/api")]
         public ActionResult<string> Post([FromBody] NewsItemInputModel inputModel)
         {
@@ -80,6 +77,7 @@ namespace TechnicalRadiation.Controllers
 
 
         // PUT api/5
+        [BasicAuthenticationAtrribute]
         [HttpPut("/api/{newsItemId}")]
         public void Put(int newsItemId, [FromBody] NewsItemInputModel inputModel)
         {
@@ -87,17 +85,12 @@ namespace TechnicalRadiation.Controllers
             _newsItemService.updateNewsItemById(inputModel, newsItemId);
         }
 
-        // DELETE api/values/5
+        // DELETE api/5
+        [BasicAuthenticationAtrribute]
         [HttpDelete("/api/{newsItemId}")]
         public void Delete(int newsItemId)
         {
             _newsItemService.deleteNewsById(newsItemId);
-        }
-
-    
-        [HttpGet("/test")]
-        public IActionResult GetTest([FromHeader] string authorize) {
-            return Ok(authorize);
         }
 
 

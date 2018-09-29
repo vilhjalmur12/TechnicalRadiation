@@ -17,8 +17,8 @@ namespace TechnicalRadiation.Models.Attributes
             if(!String.IsNullOrEmpty(auth))
             {
                 var cred = auth;
-                if(cred == validValue)
-                    return;
+                if(cred != validValue)
+                    throw new UnauthorizedException();
             }
             else {
                 throw new UnauthorizedException();

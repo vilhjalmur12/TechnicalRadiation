@@ -15,6 +15,13 @@ namespace TechnicalRadiation.Data
         public static List<NewsItem> NewsItems { get => _newsmodels; set => _newsmodels = value; }
         public static List<Author> Authors { get => _authormodels; set => _authormodels = value; }
         public static List<Category> Categorys { get => _categorymodels; set => _categorymodels = value; }
+        public static List<NewsCategoryRelation> NewsCategoryRelation {
+            get => _categoryNewsRelation; set => _categoryNewsRelation = value;
+        }
+        public static List<NewsAuthorRelation> NewsAuthorRelations {
+            get => _authorNewsRelations; set => _authorNewsRelations = value;
+        }
+
         private static List<NewsItem> _newsmodels = new List<NewsItem>
         {
             new NewsItem
@@ -289,6 +296,80 @@ namespace TechnicalRadiation.Data
                 ParentCategoryId = 0,
 
             }
+        };
+
+        private static List<NewsCategoryRelation> _categoryNewsRelation = new List<NewsCategoryRelation>
+        {
+                new NewsCategoryRelation
+                {
+                    Id = 1,
+                    newsId = 12,
+                    categoryId = 2
+                },
+                new NewsCategoryRelation
+                {
+                    Id = 2,
+                    newsId = 12,
+                    categoryId = 1
+                },
+                new NewsCategoryRelation
+                {
+                    Id = 3,
+                    newsId = 4,
+                    categoryId = 1
+                },
+                new NewsCategoryRelation
+                {
+                    Id = 4,
+                    newsId = 5,
+                    categoryId = 2
+                },
+                new NewsCategoryRelation
+                {
+                    Id = 5,
+                    newsId = 6,
+                    categoryId = 2
+                }  
+        };
+
+        private static List<NewsAuthorRelation> _authorNewsRelations = new List<NewsAuthorRelation>
+        {
+                new NewsAuthorRelation 
+                {
+                    Id = 1,
+                    newsId = 12,
+                    authorId = 2
+                },
+                new NewsAuthorRelation 
+                {
+                    Id = 2, 
+                    newsId = 14,
+                    authorId = 2
+                },
+                new NewsAuthorRelation 
+                {
+                    Id = 3, 
+                    newsId = 16,
+                    authorId = 1
+                },
+                new NewsAuthorRelation 
+                {
+                    Id = 4, 
+                    newsId = 17,
+                    authorId = 2
+                },
+                new NewsAuthorRelation 
+                {
+                    Id = 5, 
+                    newsId = 1,
+                    authorId = 2
+                },
+                new NewsAuthorRelation 
+                {
+                    Id = 6, 
+                    newsId = 1,
+                    authorId = 1
+                },
         };
     }
 }
