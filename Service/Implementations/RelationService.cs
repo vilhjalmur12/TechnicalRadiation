@@ -19,6 +19,10 @@ namespace TechnicalRadiation.Service.Implementations
             return getNewsCatData().Where( t => t.newsId == id).ToList();
         }
 
+        public void setAuthorNewsRelations(int authorId, int newsId) {
+            
+        }
+
         /* 
         public List<NewsAuthorRelation> getNewsAuthorRelByAuthorId(int id) {
             return getTestData().Where( r => r.authorId)
