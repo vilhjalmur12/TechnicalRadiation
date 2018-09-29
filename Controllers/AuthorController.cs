@@ -66,7 +66,17 @@ namespace TechnicalRadiation.Controllers
             return getAuthorById(modelId);
         }
 
+        // POST /api/authors/2/newsItems/5
+        [BasicAuthenticationAtrribute]
+        [HttpPost("/api/authors/{authorId}/newsItems/{newsItemId}")]
+        public ActionResult<string> createAuthorNewsRelation(int authorId, int newsItemId)
+        {
+            _relationService.setAuthorNewsRelations(newsItemId, authorId);            
+            return Ok();
+        }
+
         // PUT api/5
+        [BasicAuthenticationAtrribute]
         [HttpPut("/api/authors/{authorId}")]
         public void updateAuthor(int authorId, [FromBody] AuthorInputModel inputModel)
         {
@@ -75,6 +85,7 @@ namespace TechnicalRadiation.Controllers
         }
 
         // DELETE api/values/5
+        [BasicAuthenticationAtrribute]
         [HttpDelete("/api/authors/{authorId}")]
         public void Delete(int authorId)
         {
@@ -99,8 +110,6 @@ namespace TechnicalRadiation.Controllers
             
             return Ok(returnValue);
         }
-
-
 
 
 

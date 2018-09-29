@@ -8,6 +8,7 @@ using TechnicalRadiation.Service.Implementations;
 using TechnicalRadiation.Models.DTO;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Models.Exceptions;
+using TechnicalRadiation.Models.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Dynamic;
@@ -17,6 +18,7 @@ namespace TechnicalRadiation.Controllers
     public class CategoriesController : ControllerBase
     {
         ICategoriesService _categoryService = new CategoriesService();
+        IRelationService _relationService = new RelationService();
 
         // GET api/categories
         [HttpGet("/api/categories")]
@@ -46,6 +48,7 @@ namespace TechnicalRadiation.Controllers
 
 
         // POST api/values
+        [BasicAuthenticationAtrribute]
         [HttpPost("/api/categories")]
         public ActionResult<string> createCategory([FromBody] CategoryInputModel inputModel)
         {
@@ -56,6 +59,7 @@ namespace TechnicalRadiation.Controllers
         }
 
         // PUT api/values/5
+        [BasicAuthenticationAtrribute]
         [HttpPut("/api/categories/{categoryId}")]
         public void updateCategoryById(int categoryId, [FromBody] CategoryInputModel inputModel)
         {
@@ -66,6 +70,7 @@ namespace TechnicalRadiation.Controllers
         }
 
         // DELETE api/values/5
+        [BasicAuthenticationAtrribute]
         [HttpDelete("/api/categories/{categoryId}")]
         public void deleteCategoryById(int categoryId)
         {
@@ -73,7 +78,15 @@ namespace TechnicalRadiation.Controllers
         }
 
 
-
+        // Creates relation between NewsItem and a Category
+        // POST api/categories/2/newsItem/20
+        [BasicAuthenticationAtrribute]
+        [HttpPost("/api/categories/{categoryId}/newsItems/{newsItemId}")]
+        public ActionResult<string> createCategoryNewsRelation(int categoryId, int newsItemId)
+        {
+            _relationService.setNewsCategoryRelations(newsItemId, categoryId);
+            return Ok();
+        }
 
         private CategoryDto referenceItem(CategoryDto value) {
             JObject tmpObj = new JObject();

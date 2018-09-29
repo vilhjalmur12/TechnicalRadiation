@@ -11,6 +11,6 @@ namespace TechnicalRadiation.Service.Interfaces
         NewsItemDetailDto getNewsItemById(int id);
         int createNewsItem(NewsItemInputModel inputModel);
         void updateNewsItemById(NewsItemInputModel model, int id);
-        void deleteNewsById(int id);
+        void deleteNewsById(int id); 
     }
 }
