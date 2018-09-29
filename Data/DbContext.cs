@@ -7,7 +7,6 @@ using System;
 namespace TechnicalRadiation.Data
 {
     
-
     public static class DbContext
     {
         private const string DATE_FORMAT = "dd/MM/yyyy hh:mm:tt";
@@ -22,6 +21,14 @@ namespace TechnicalRadiation.Data
             get => _authorNewsRelations; set => _authorNewsRelations = value;
         }
 
+        /*
+            The plan was to use DateTime.Parse(string) in initializing the Publish date.
+            However we ended up with european time parsing vs. american problem so one Mac 
+            computer wanted different parsing for the string and a windows computer another. We
+            even tried the ParseExact function but had differrent issues then. All requirement are
+            still met under the services for ordering by the date we just needed to switch to 
+            DateTime.Now in initializing.
+         */
         private static List<NewsItem> _newsmodels = new List<NewsItem>
         {
             new NewsItem
@@ -31,7 +38,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/1.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:00")
+                PublishDate = DateTime.Now
             },
             new NewsItem
             {
@@ -40,7 +47,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/2.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:02"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -49,7 +56,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/3.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:03"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -58,7 +65,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/4.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:04"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -67,7 +74,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/5.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:05"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -76,7 +83,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/6.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:06"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -85,7 +92,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/7.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:07"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -94,7 +101,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/8.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:08"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -103,7 +110,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/9.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:09"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -112,7 +119,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/10.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:10"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -121,7 +128,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/11.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:11"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -130,7 +137,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/12.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:12"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -139,7 +146,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/13.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:13"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -148,7 +155,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/14.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:14"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -157,7 +164,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/15.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:15"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -166,7 +173,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/16.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:16"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -175,7 +182,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/17.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:17"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -184,7 +191,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/18.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:18"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -193,7 +200,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/19.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:19"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -202,7 +209,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/20.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:20"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -211,7 +218,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/21.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:21"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -220,7 +227,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/22.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:22"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -229,7 +236,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/23.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:23"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -238,7 +245,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/24.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:24"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -247,7 +254,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/25.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:25"),
+                PublishDate = DateTime.Now,
             },
             new NewsItem
             {
@@ -256,7 +263,7 @@ namespace TechnicalRadiation.Data
                 ImgSource = "https://example.com/news-item/25.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
-                PublishDate = DateTime.Parse("07/24/2018 10:00:26"),
+                PublishDate = DateTime.Now,
             }
         };
 
