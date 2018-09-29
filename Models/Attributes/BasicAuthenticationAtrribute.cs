@@ -14,15 +14,14 @@ namespace TechnicalRadiation.Models.Attributes
         {
             var req = filterContext.HttpContext.Request;
             var auth = req.Headers["Authorization"];
-            if(String.IsNullOrEmpty(auth))
+            if(!String.IsNullOrEmpty(auth))
             {
-                var cred = System.Text.ASCIIEncoding.ASCII.GetString(Convert.FromBase64String(auth));
+                var cred = auth;
                 if(cred == validValue)
                     return;
             }
             else {
-                throw new ResourceNotFoundException();
-                //filterContext.Result = new HttpUnauthorizedResult();
+                throw new UnauthorizedException();
             }
         }
     }

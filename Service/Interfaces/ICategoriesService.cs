@@ -10,6 +10,7 @@ namespace TechnicalRadiation.Service.Interfaces
         CategoryDto GetCategoryById(int id);
         int createCategory(CategoryInputModel inputModel);
         void updateCategoryById(int categoryId,CategoryInputModel inputModel);
+        void deleteCategoryById(int categoryId);
     }
 
 }
